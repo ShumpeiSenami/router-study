@@ -9,8 +9,7 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var helmet = require('helmet');
-
-// -GitHub 認証のための処理----------------------------------------
+// -- 認証のための処理----------------------------------------
 var session = require('express-session');
 var passport = require('passport');
 var GitHubStrategy = require('passport-github2').Strategy;
@@ -73,7 +72,12 @@ app.get('/auth/github/callback',
   function (req, res) {
     res.redirect('/');
   });
-// passport-twitter 用
+// passport-twitter用
+// TODO Twitter　認証の処理を作る
+var TWITTER_CONSUMER_KEY = 'TWITTER_CONSUMER_KEY';
+var TWITTER_CONSUMER_SECRET = 'TWITTER_CONSUMER_SECRET';
+
+
 
 app.get('/login', function(req, res){
   res.render('login'); // /login にGETでアクセスがあった時に login.pug を描写する
